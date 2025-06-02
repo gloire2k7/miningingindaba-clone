@@ -1,20 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import TopBar from './components/layout/TopBar'
-import Navbar from './components/layout/Navbar'
-import Home from './pages/Home'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import ExhibitOrSponsorWhy from "./pages/exhibit-or-sponsor-why";
+//import Home from "./pages/Home";
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen pt-20">
-        <TopBar />
-        <Navbar />
+      <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<ExhibitOrSponsorWhy />} />
+          <Route path="/exhibit-sponsor/why" element={<ExhibitOrSponsorWhy />} />
         </Routes>
-      </div>
+      </Layout>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

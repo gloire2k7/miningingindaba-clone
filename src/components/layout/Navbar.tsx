@@ -46,16 +46,38 @@ const navigation = [
   },
   {
     label: "Exhibit or Sponsor",
-    to: "/exhibit-sponsor",
+    to: "/exhibit-sponsor/why",
     children: [
-      { label: "Why Exhibit or Sponsor", to: "/exhibit-sponsor/why" },
       {
-        label: "Exhibitor & Sponsor Handbook",
-        to: "/exhibit-sponsor/handbook",
+        label: "Why Exhibit or Sponsor?",
+        to: "/exhibit-sponsor/why",
+        children: [
+          {
+            label: "2026 Exhibitor Brochure",
+            to: "/exhibit-sponsor/why/2026-exhibitor-brochure",
+          },
+        ],
       },
-      { label: "Become an Exhibitor", to: "/exhibit-sponsor/become-exhibitor" },
-      { label: "Become a Sponsor", to: "/exhibit-sponsor/become-sponsor" },
-      { label: "Networking Opportunities", to: "/exhibit-sponsor/networking" },
+      {
+        label: "Who Attended In 2025",
+        to: "/exhibit-sponsor/who-attended-in-2025",
+        children: [
+          {
+            label: "2025 Sponsors",
+            to: "/exhibit-sponsor/who-attended-in-2025/sponsors",
+          },
+          {
+            label: "2025 Exhibitors",
+            to: "/exhibit-sponsor/who-attended-in-2025/exhibitors",
+          },
+        ],
+      },
+      { label: "Testimonials", to: "/exhibit-sponsor/testimonials" },
+      {
+        label: "Enquire to Exhibit or Sponsor",
+        to: "/exhibit-sponsor/enquire",
+      },
+      { label: "Client Zone", to: "/exhibit-sponsor/client-zone" },
     ],
   },
   { label: "2026 Theme & Advisory Board", to: "/theme-advisory" },
@@ -83,9 +105,12 @@ const Navbar = () => {
         <div className="flex flex-col md:flex-col md:items-end gap-4 w-full md:w-auto">
           {/* Buttons */}
           <div className="flex gap-3 justify-center md:justify-end w-full md:w-auto">
-            <button className="bg-[#64a63a] hover:bg-[#55952c] text-white font-bold px-6 py-2 rounded text-sm shadow-md uppercase tracking-wide">
+            <Link
+              to="/exhibit-sponsor/why"
+              className="bg-[#64a63a] hover:bg-[#55952c] text-white font-bold px-6 py-2 rounded text-sm shadow-md uppercase tracking-wide"
+            >
               EXHIBIT OR SPONSOR
-            </button>
+            </Link>
             <button className="bg-[#ffda3a] hover:bg-[#e6c733] text-black font-bold px-6 py-2 rounded text-sm shadow-md uppercase tracking-wide">
               REGISTER INTEREST
             </button>
