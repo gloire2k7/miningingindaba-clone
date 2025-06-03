@@ -573,10 +573,10 @@ const Testimonials = () => {
         <div className="flex flex-col md:flex-row items-center gap-8">
           {/* Text Content */}
           <div className="md:w-1/2 bg-[#5da033] p-8 text-white">
-            <p className="text-white text-lg mb-4 ">
+            <h2 className=" text-2xl md:text-3xl font-bold mb-4">
               Solarcentury Africa and the Industrial Development Corporation of
               Zambia to develop a 67 MWp solar project
-            </p>
+            </h2>
             <p className="text-white mb-4 ">
               During Mining Indaba 2025, Solarcentury Africa announced the
               signing of an agreement with the Industrial Development
@@ -623,6 +623,36 @@ const Testimonials = () => {
             <button className="bg-white border border-white text-[#64a63a] font-bold px-6 py-2 rounded text-base hover:bg-gray-100 transition-colors duration-300">
               LEARN MORE
             </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Joint Development Agreement Section */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row items-center gap-8">
+          {/* Text Content */}
+          <div className="md:w-1/2 bg-[#5da033] p-8 text-white">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Joint Development Agreement (JDA) among Anglo American South
+              Africa, Sasol and De Beers Group
+            </h2>
+            <p className="text-lg mb-4">
+              Signed at Investing in African Mining Indaba, Anglo American South
+              Africa's Joint Development Agreement (JDA) with Sasol and De Beers
+              Group makes a significant step towards developing a local
+              renewable diesel value chain in South Africa.
+            </p>
+            <button className="bg-white border border-white text-[#64a63a] font-bold px-6 py-2 rounded text-base hover:bg-gray-100 transition-colors duration-300">
+              LEARN MORE
+            </button>
+          </div>
+          {/* Image */}
+          <div className="md:w-1/2">
+            <img
+              src="/placeholder-jda.png"
+              alt="Joint Development Agreement"
+              className="w-full h-auto rounded-lg shadow-md"
+            />
           </div>
         </div>
       </div>
