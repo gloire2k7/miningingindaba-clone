@@ -843,6 +843,131 @@ const ExhibitOrSponsorWhy = () => {
           </div>
         </div>
       </div>
+
+      {/* Discover the opportunities Section */}
+      <div className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            Discover the opportunities
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Opportunity Card 1 */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              {/* Placeholder Image */}
+              <img
+                src="/placeholder-opportunity-1.jpg"
+                alt="Opportunity 1 Image"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Exhibit
+                </h3>
+                <p className="text-gray-700 text-base">
+                  Showcase your products and services to a global audience of
+                  mining professionals and investors. Build new partnerships and
+                  generate leads.
+                </p>
+              </div>
+            </div>
+
+            {/* Opportunity Card 2 */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              {/* Placeholder Image */}
+              <img
+                src="/placeholder-opportunity-2.jpg"
+                alt="Opportunity 2 Image"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Sponsor
+                </h3>
+                <p className="text-gray-700 text-base">
+                  Elevate your brand visibility and stand out from the
+                  competition with tailored sponsorship packages that align with
+                  your marketing objectives.
+                </p>
+              </div>
+            </div>
+
+            {/* Opportunity Card 3 */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              {/* Placeholder Image */}
+              <img
+                src="/placeholder-opportunity-3.jpg"
+                alt="Opportunity 3 Image"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Advertise
+                </h3>
+                <p className="text-gray-700 text-base">
+                  Reach a highly targeted audience through various advertising
+                  channels before, during, and after the event to maximize your
+                  brand exposure.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action Button */}
+          <div className="text-center mt-12">
+            <button className="bg-[#64a63a] hover:bg-[#55952c] text-white font-bold px-8 py-3 rounded text-lg shadow-md uppercase tracking-wide">
+              ENQUIRE TO EXHIBIT OR SPONSOR
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mining Indaba 2026 Sponsors and Exhibitors Section (Carousel) */}
+      <div className="py-16 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            Mining Indaba 2026 Sponsors and Exhibitors
+          </h2>
+
+          {/* Carousel Container */}
+          <div className="relative">
+            <div
+              className="flex items-center overflow-x-scroll snap-x snap-mandatory scroll-smooth hide-scrollbar space-x-8"
+              style={{ paddingBottom: "2rem" }} // Add padding for scrollbar space if hide-scrollbar fails
+            >
+              {/* Placeholder for Sponsor/Exhibitor Logos (Adjust number as needed) */}
+              {[...Array(15)].map((_, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center text-center flex-shrink-0 w-48 snap-center p-4"
+                >
+                  <div className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center h-24 w-full">
+                    {/* Placeholder for Logo - Replace with actual image paths */}
+                    <img
+                      src={`/placeholder-logo-sponsor-${index + 1}.png`}
+                      alt={`Sponsor/Exhibitor Logo ${index + 1}`}
+                      className="h-16 object-contain"
+                    />
+                  </div>
+                  {/* Optional: Add sponsor/exhibitor name or stand number if needed based on visual */}
+                  {/* <div className="mt-4 text-gray-900 font-semibold text-sm">Company Name {index + 1}</div> */}
+                  {/* <div className="text-sm text-gray-600 mt-1">Stand: S{index + 1}</div> */}
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation Dots - Add if needed based on visual, implement logic */}
+            {/* <div className="flex justify-center mt-8 space-x-3">
+              {[...Array(Math.ceil(15 / 5))].map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-colors duration-200 ${index === 0 ? 'bg-[#64a63a]' : 'bg-gray-400'} hover:bg-[#64a63a]`}
+                ></button>
+              ))}
+            </div> */}
+          </div>
+        </div>
+      </div>
     </>
   );
 };
