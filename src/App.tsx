@@ -7,14 +7,14 @@ import WhoAttended2025Exhibitors from "./pages/who-attended-2025-exhibitors";
 import Testimonials from "./pages/Testimonials";
 import Enquire from "./pages/Enquire";
 import ClientZone from "./pages/ClientZone";
-//import Home from "./pages/Home";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<ExhibitOrSponsorWhy />} />
+          <Route path="/" element={<Home/>} />
           <Route
             path="/exhibit-sponsor/why"
             element={<ExhibitOrSponsorWhy />}

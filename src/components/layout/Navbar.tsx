@@ -46,17 +46,14 @@ const navigation = [
   },
   {
     label: "Exhibit or Sponsor",
-    to: "/exhibit-sponsor/why",
     children: [
       {
         label: "Why Exhibit or Sponsor?",
         to: "/exhibit-sponsor/why",
-        children: [
-          {
-            label: "2026 Exhibitor Brochure",
-            to: "/exhibit-sponsor/2026-exhibitor-brochure",
-          },
-        ],
+      },
+      {
+        label: "2026 Exhibitor Brochure",
+        to: "/exhibit-sponsor/2026-exhibitor-brochure",
       },
       {
         label: "Who Attended In 2025",

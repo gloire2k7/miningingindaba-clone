@@ -68,7 +68,7 @@ const ExhibitorBrochure2026 = () => {
                 type="text"
                 name="firstName"
                 id="firstName"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-white"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-gray-200"
               />
             </div>
             <div>
@@ -82,7 +82,7 @@ const ExhibitorBrochure2026 = () => {
                 type="text"
                 name="lastName"
                 id="lastName"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-white"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-gray-200"
               />
             </div>
             <div>
@@ -96,7 +96,7 @@ const ExhibitorBrochure2026 = () => {
                 type="email"
                 name="email"
                 id="email"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-white"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-gray-200"
               />
               <p className="mt-2 text-sm text-gray-500">
                 Using a business email helps us better understand your interest
@@ -114,7 +114,7 @@ const ExhibitorBrochure2026 = () => {
                 <select
                   id="countryCode"
                   name="countryCode"
-                  className="rounded-none rounded-l-md border-gray-300 focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-white"
+                  className="rounded-none rounded-l-md border-gray-300 focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-gray-200"
                 >
                   <option value="">Select Country Code</option>
                   <option value="+1">United States (+1)</option>
@@ -148,7 +148,7 @@ const ExhibitorBrochure2026 = () => {
                   type="text"
                   name="phoneNumber"
                   id="phoneNumber"
-                  className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-white"
+                  className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-gray-200"
                   placeholder="e.g., 8123 456789"
                 />
               </div>
@@ -163,7 +163,7 @@ const ExhibitorBrochure2026 = () => {
               <select
                 id="country"
                 name="country"
-                className="mt-1 block w-full rounded-md border-gray-700 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-white"
+                className="mt-1 block w-full rounded-md border-gray-700 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-gray-200"
               >
                 <option>Please Select</option>
                 <option value="AF">Afghanistan</option>
@@ -423,7 +423,7 @@ const ExhibitorBrochure2026 = () => {
                 type="text"
                 name="companyName"
                 id="companyName"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-white border-gray-700"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-gray-200 border-gray-700"
               />
             </div>
             <div>
@@ -437,7 +437,7 @@ const ExhibitorBrochure2026 = () => {
                 type="text"
                 name="jobTitle"
                 id="jobTitle"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-white"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-gray-200"
               />
             </div>
             <div>
@@ -450,7 +450,7 @@ const ExhibitorBrochure2026 = () => {
               <select
                 id="jobFunction"
                 name="jobFunction"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-white"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-gray-200"
               >
                 <option>Please Select</option>
                 <option value="academic_student">Academic or Student</option>
@@ -502,7 +502,7 @@ const ExhibitorBrochure2026 = () => {
               <select
                 id="sector"
                 name="sector"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-white"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-400 focus:ring-gray-400 sm:text-sm bg-gray-200"
               >
                 <option>Please Select</option>
                 <option value="precious_metals">Precious Metals</option>
