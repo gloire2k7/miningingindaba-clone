@@ -54,10 +54,53 @@ const stats = [
   },
 ];
 
+// Define the company data for the carousel
+const companies = [
+  { logo: "/logos/barrick.png", name: "BARRICK", stand: "Stand: G29" },
+  {
+    logo: "/logos/hitachi.png",
+    name: "HITACHI CONSTRUCTION MACHINERY AFRICA (PTY) LTD",
+    stand: "Stand: M28",
+  },
+  { logo: "/logos/aeci.png", name: "AECI MINING", stand: "Stand: L30" },
+  {
+    logo: "/logos/caterpillar.png",
+    name: "CATERPILLAR INC.",
+    stand: "Stand: E30",
+  },
+  {
+    logo: "/logos/enaex.png",
+    name: "ENAEX AFRICA (PTY) LTD",
+    stand: "Stand: K40",
+  },
+  {
+    logo: "/logos/mota-engil.png",
+    name: "MOTA-ENGIL",
+    stand: "STAND: A36, A30",
+  },
+  {
+    logo: "/logos/totalenergies.png",
+    name: "TOTALENERGIES",
+    stand: "STAND: A10",
+  },
+  { logo: "/logos/weir.png", name: "WEIR", stand: "STAND: R11" },
+  { logo: "/logos/rio-tinto.png", name: "RIO TINTO", stand: "STAND: G30" },
+  { logo: "/logos/rawbank.png", name: "RAWBANK SA", stand: "STAND: E28" },
+  {
+    logo: "/logos/kinross.png",
+    name: "KINROSS GOLD CORPORATION / MINISTRY OF MINES AND INDUSTRY (MAURITANIA)",
+    stand: "STAND: J35",
+  },
+  { logo: "/logos/vivo-energy.png", name: "VIVO ENERGY", stand: "STAND: G36" },
+];
+
 const ExhibitOrSponsorWhy = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const itemsPerPage = 4;
   const itemWidth = 250; // Approximate width of each stat item including spacing
+  const carouselItemsPerPage = 5;
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeDotIndex, setActiveDotIndex] = useState(0);
 
   const handleNext = () => {
     if (scrollContainerRef.current) {
@@ -79,6 +122,11 @@ const ExhibitOrSponsorWhy = () => {
 
   return (
     <>
+      {/* Why Exhibit or Sponsor Header Bar */}
+      <div className="bg-gradient-to-r from-[#64a63a] to-[#b8f337] py-4 text-white text-center text-2xl font-bold">
+        Why Exhibit or Sponsor
+      </div>
+
       {/* Inject styles to hide scrollbar */}
       <style>{`
         .hide-scrollbar::-webkit-scrollbar {
@@ -444,6 +492,354 @@ const ExhibitOrSponsorWhy = () => {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Call to Action Banner */}
+      <div className="bg-gradient-to-r from-[#64a63a] to-[#b8f337] py-16 text-center">
+        <div className="container mx-auto px-4 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Join us at Mining Indaba 2026
+          </h2>
+          <p className="text-lg mb-8">
+            Sign up early for Mining Indaba to secure better rates, prime floor
+            plan options, and a head start on planning your success!
+          </p>
+          <button className="bg-[#ffda3a] hover:bg-[#e6c233] text-black font-bold px-6 py-3 rounded text-lg shadow-md uppercase tracking-wide">
+            ENQUIRE TO EXHIBIT OR SPONSOR
+          </button>
+        </div>
+      </div>
+
+      {/* Who Joined Us Section (Carousel) */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            Who joined us in 2025
+          </h2>
+
+          {/* Carousel Container */}
+          <div className="relative">
+            <div
+              ref={carouselRef}
+              className="flex items-center overflow-x-scroll snap-x snap-mandatory scroll-smooth hide-scrollbar space-x-8"
+              style={{ paddingBottom: "2rem" }} // Add padding for scrollbar space if hide-scrollbar fails
+            >
+              {/* Placeholder for Company Items (Adjust number as needed) */}
+              {companies.map((company, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center text-center flex-shrink-0 w-64 snap-center p-4"
+                >
+                  <div className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center h-32 w-full">
+                    <img
+                      src={company.logo}
+                      alt={company.name}
+                      className="h-24 object-contain"
+                    />
+                  </div>
+                  <div className="mt-4 text-gray-900 font-semibold text-sm h-12 flex items-center justify-center px-2 text-center leading-tight w-full">
+                    {company.name}
+                  </div>
+                  <div className="text-sm text-gray-600 mt-1 w-full">
+                    {company.stand}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation Dots */}
+            <div className="flex justify-center mt-8 space-x-3">
+              {/* Calculate number of dots based on total items and items per page */}
+              {[
+                ...Array(Math.ceil(companies.length / carouselItemsPerPage)),
+              ].map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                    index === activeDotIndex
+                      ? "border-2 border-[#64a63a] bg-white"
+                      : "bg-[#64a63a]"
+                  } hover:opacity-75`}
+                  onClick={() => {
+                    if (carouselRef.current) {
+                      // Assuming all items have the same width including margin
+                      const itemWidthWithSpacing =
+                        carouselRef.current.children[0].clientWidth +
+                        parseInt(
+                          getComputedStyle(carouselRef.current.children[0])
+                            .marginRight,
+                          10
+                        );
+                      const scrollToPosition =
+                        index * carouselItemsPerPage * itemWidthWithSpacing;
+                      carouselRef.current.scrollTo({
+                        left: scrollToPosition,
+                        behavior: "smooth",
+                      });
+                      setActiveDotIndex(index);
+                    }
+                  }}
+                ></button>
+              ))}
+            </div>
+          </div>
+
+          {/* View All Button */}
+          <div className="text-center mt-12">
+            <button className="bg-[#64a63a] hover:bg-[#55952c] text-white font-bold px-8 py-3 rounded text-lg shadow-md uppercase tracking-wide">
+              VIEW ALL EXHIBITORS
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Benefits of Booking Early Section */}
+      <div className="bg-gray-100 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            Benefits of Booking Early
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1: Prime Stand Location & Visibility */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              {/* Placeholder Image */}
+              <img
+                src="/placeholder-benefit-1.jpg"
+                alt="Prime Stand Location"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Prime Stand Location & Visibility
+                </h3>
+                <p className="text-gray-700 text-base">
+                  Early booking allows exhibitors to secure the best locations
+                  on the exhibition floor, ensuring maximum visibility and foot
+                  traffic.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2: Stronger Competitive Advantage */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              {/* Placeholder Image */}
+              <img
+                src="/placeholder-benefit-2.jpg"
+                alt="Competitive Advantage"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Stronger Competitive Advantage
+                </h3>
+                <p className="text-gray-700 text-base">
+                  By securing a space early, exhibitors can lock in their
+                  participation before competitors, ensuring a strong presence
+                  in a prime spot.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3: Guaranteed Participation */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              {/* Placeholder Image */}
+              <img
+                src="/placeholder-benefit-3.jpg"
+                alt="Guaranteed Participation"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Guaranteed Participation
+                </h3>
+                <p className="text-gray-700 text-base">
+                  Mining Indaba is a high-demand event, and late registration
+                  could mean missing out on a spot altogether if the exhibition
+                  space sells out.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Exhibit or Sponsor Button */}
+          <div className="text-center mt-12">
+            <button className="bg-[#64a63a] hover:bg-[#55952c] text-white font-bold px-8 py-3 rounded text-lg shadow-md uppercase tracking-wide">
+              EXHIBIT OR SPONSOR
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Hear from Section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            Hear from
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Testimonial Card 1 */}
+            <div className="bg-gray-50 rounded-lg shadow-lg overflow-hidden flex flex-col">
+              <div className="aspect-video w-full">
+                {/* Placeholder Video Embed - Replace with actual embed code */}
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/0wtoG5QfXdU"
+                  title="Testimonial 1"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-6 flex-grow relative">
+                <p className="text-gray-700 text-base mb-4">
+                  It&apos;s not every day you get the whole of the mining
+                  industry in one spot. It&apos;s a good opportunity to showcase
+                  what we do and network with our clients and possible future
+                  clients. Having a presence is important because these are our
+                  clients and if they are familiar with our brand then they
+                  reach out when they have projects to get off the ground.
+                </p>
+                <div className="text-[#64a63a] font-semibold mt-auto">
+                  <p className="text-lg">Japie Du Plessis</p>
+                  <p className="text-sm">Managing Director</p>
+                  <p className="text-sm">Murray & Roberts</p>
+                </div>
+                {/* Placeholder for Green Quotation Mark */}
+                <div className="absolute bottom-4 right-6 text-green-200 text-6xl font-serif opacity-50">
+                  ”
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial Card 2 */}
+            <div className="bg-gray-50 rounded-lg shadow-lg overflow-hidden flex flex-col">
+              <div className="aspect-video w-full">
+                {/* Placeholder Video Embed - Replace with actual embed code */}
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/vmyDZFlAZiM"
+                  title="Testimonial 2"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-6 flex-grow relative">
+                <p className="text-gray-700 text-base mb-4">
+                  What makes this an ideal platform is the diversity of thought
+                  and interaction. We all share the same challenges, and we can
+                  find common solutions. If we collaborate and work together, we
+                  can come to solutions but if we are not present nobody knows
+                  what we can do. This platform, this indaba approach is very
+                  rewarding.
+                </p>
+                <div className="text-[#64a63a] font-semibold mt-auto">
+                  <p className="text-lg">Kavita Pema</p>
+                  <p className="text-sm">VP of Sustainability</p>
+                  <p className="text-sm">AECI</p>
+                </div>
+                {/* Placeholder for Green Quotation Mark */}
+                <div className="absolute bottom-4 right-6 text-green-200 text-6xl font-serif opacity-50">
+                  ”
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* View All Testimonials Button */}
+      <div className="container mx-auto px-4 py-8 text-center">
+        <button className="bg-[#64a63a] hover:bg-[#55952c] text-white font-bold px-8 py-3 rounded text-lg shadow-md uppercase tracking-wide">
+          VIEW ALL TESTIMONIALS
+        </button>
+      </div>
+
+      {/* Featured Articles Section */}
+      <div className="bg-gray-100 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            Featured Articles
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Article Card 1 */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+              {/* Placeholder Image */}
+              <img
+                src="/placeholder-article-1.jpg"
+                alt="Article 1 Image"
+                className="w-full h-48 object-cover"
+              />
+              {/* Green Bar */}
+              <div className="bg-[#64a63a] text-white text-sm px-4 py-2">
+                25 Feb 2025 | Market News
+              </div>
+              <div className="p-6 flex-grow">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Future-proofing PGMs: Hydrogen, EV markets, and the energy
+                  transition
+                </h3>
+                <p className="text-gray-700 text-base mb-4 line-clamp-3">
+                  In this insightful interview with Kirthanya Pillay, Strategy,
+                  M&A, and Investments at Impala Platinum, conducted for Mining
+                  Indaba TV, s...
+                </p>
+                <div className="mt-auto">
+                  <button className="group font-semibold text-sm">
+                    <span className="bg-[#64a63a] text-white px-6 py-2 rounded-[999px] border-2 border-[#64a63a] flex items-center transition-all duration-300 group-hover:bg-white group-hover:text-[#64a63a]">
+                      <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                      Read more
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Article Card 2 */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+              {/* Placeholder Image */}
+              <img
+                src="/placeholder-article-2.jpg"
+                alt="Article 2 Image"
+                className="w-full h-48 object-cover"
+              />
+              {/* Green Bar */}
+              <div className="bg-[#64a63a] text-white text-sm px-4 py-2">
+                24 Feb 2025 | Market News
+              </div>
+              <div className="p-6 flex-grow">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Unlocking the future of manganese in Africa
+                </h3>
+                <p className="text-gray-700 text-base mb-4 line-clamp-3">
+                  Join Madelein Todd, Marketing Executive at Manganese Metal
+                  Company, as she shares valuable insights during an exclusive
+                  intervie...
+                </p>
+                <div className="mt-auto">
+                  <button className="group font-semibold text-sm">
+                    <span className="bg-[#64a63a] text-white px-6 py-2 rounded-[999px] border-2 border-[#64a63a] flex items-center transition-all duration-300 group-hover:bg-white group-hover:text-[#64a63a]">
+                      <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                      Read more
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* All Event News Button */}
+          <div className="text-center mt-12">
+            <button className="bg-[#64a63a] hover:bg-[#55952c] text-white font-bold px-8 py-3 rounded text-lg shadow-md uppercase tracking-wide">
+              ALL EVENT NEWS
+            </button>
           </div>
         </div>
       </div>

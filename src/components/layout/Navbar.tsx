@@ -54,7 +54,7 @@ const navigation = [
         children: [
           {
             label: "2026 Exhibitor Brochure",
-            to: "/exhibit-sponsor/why/2026-exhibitor-brochure",
+            to: "/exhibit-sponsor/2026-exhibitor-brochure",
           },
         ],
       },
